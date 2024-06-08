@@ -1,0 +1,535 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&family=Quantico&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+html,body {
+    overflow-x: hidden;
+}
+body {
+    min-height: 100svh;
+    font-family: "Noto Sans TC", sans-serif, sans-serif;
+    background-color: #1a1a1ac5;
+    background: url(https://cdn.discordapp.com/attachments/972483073717465149/1208058898687332452/pexels-arina-krasnikova-7002683.jpg?ex=65e1e786&is=65cf7286&hm=1da470e082c814ee7c1943b0a14af2c474bbd5d4d22c29df2ed924240159a14a&);
+    background-size: cover;
+    font-size: 0.8rem;
+}
+
+.wrap {
+    background: url(https://cdn.discordapp.com/attachments/972483073717465149/1208058898687332452/pexels-arina-krasnikova-7002683.jpg?ex=65e1e786&is=65cf7286&hm=1da470e082c814ee7c1943b0a14af2c474bbd5d4d22c29df2ed924240159a14a&);
+    background-size: cover;
+}
+
+h1 {
+    font-size: 0em;
+}
+
+section {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    transition: opacity 1s;
+}
+
+.items {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    overflow: scroll;
+    scroll-snap-type: x mandatory;
+}
+
+.items div {
+    width: 100%;
+    height: 100%;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    font-size: 3em;
+    scroll-snap-align: center;
+    padding: 1rem;
+}
+
+.items div button.selected {
+    background: #000000b1;
+    color: #fff;
+}
+
+#test .arrow {
+    position: absolute;
+    top: 50%;
+    left: 1em;
+    transform: translate(-50%, -50%);
+    outline: transparent;
+    border: none;
+    background: transparent;
+    font-size: 3em;
+    transition: transform 0.3s;
+    cursor: pointer;
+}
+
+#test .arrow:last-child {
+    left: unset;
+    right: 1em;
+}
+
+#test .arrow:last-child:hover {
+    transform: translate(-20%, -50%);
+}
+
+#test .arrow:first-child:hover {
+    transform: translate(-80%, -50%);
+}
+
+#test,
+#today {
+    opacity: 0;
+    pointer-events: none;
+}
+
+#start {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+#start button,
+.items div button,
+input[type="text"],
+#download-button {
+    padding: .8em 4em;
+    border: none;
+    outline: none;
+    background: #a8c4ff91;
+    backdrop-filter: blur(3px);
+    font-size: 1.25rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 2em;
+    transition: transform .3s;
+    border-radius: 0.7em;
+    box-shadow: 0 0 10px #00000023;
+    display: block;
+    color: #000;
+    text-decoration: none;
+    text-align: center;
+    font-family:  "Noto Sans TC", sans-serif;
+    max-width: 100%;
+}
+
+#start button:hover,
+.items div button:hover,
+#download-button:hover {
+    transform: translateY(3px);
+}
+
+#start .title {
+    position: relative;
+}
+
+#start .title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url(/img/title.svg) no-repeat center center;
+    filter: blur(.3em) opacity(.7);
+    z-index: -1;
+}
+
+#start .title img {
+    width: 20em;
+}
+
+#start img {
+    width: 23em;
+}
+
+.too+section#today,
+.started~section#test,
+.end~section#result {
+    opacity: 1;
+    pointer-events: all;
+    display: block;
+}
+
+.started,
+.too,
+#result,
+.end {
+    opacity: 0;
+    pointer-events: none;
+}
+
+footer {
+    position: absolute;
+    bottom: 2em;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+footer a,
+#download-text {
+    color: #535353;
+    font-weight: 600;
+}
+
+a.credit {
+    font-size: 1.1rem;
+    margin-top: 2em;
+    border-top: #00000023 solid 1px;
+    width: 100%;
+    text-align: center;
+    color: #535353;
+    text-decoration: none;
+    display: block;
+}
+#download-text {
+    font-size: 2rem;
+}
+
+#download-text.small {
+    font-size: 1rem;
+}
+
+#download-text {
+    text-align: center;
+    margin-top: 1em;
+}
+
+.items .title  {
+    position: absolute;
+    top: 2.5rem;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    font-size: .5rem;
+}
+.current{
+    position: fixed;
+    bottom: 2.5rem;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    font-size: 1rem;
+    height: unset;
+}
+.items .title img.cap {
+    height: 1rem;
+}
+
+.items .title img {
+    height: 2rem;
+}
+
+h4 {
+    text-align: center;
+    max-width: 600px;
+}
+
+#test .arrow[disabled=""] {
+    color: #00000023;
+    cursor: not-allowed;
+}
+
+#result {
+    display: none;
+}
+
+.loading {
+    animation: shine 1s infinite alternate;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2rem;
+}
+
+@keyframes shine {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: .5;
+    }
+}
+
+#image {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    display: block;
+}
+
+canvas {
+    position: absolute;
+    top: -1000vh;
+    left: -1000vw;
+}
+
+.container {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 0 1rem;
+    background-size: cover;
+    display: none;
+}
+
+h2 {
+    font-size: 2rem;
+    margin: 1.5em;
+}
+
+#feedback {
+    border: none;
+    outline: transparent;
+    background: transparent;
+    font-family: 'Noto Serif TC', serif;
+    font-size: 1.5rem;
+    color: #000;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+#feedback:hover {
+    text-decoration: underline;
+}
+
+#output {
+    display: block;
+    margin: .8em 0 .5em;
+}
+
+/********** Range Input Styles **********/
+/*Range Reset*/
+input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    background: transparent;
+    cursor: pointer;
+    width: 25rem;
+    display: block;
+}
+
+/* Removes default focus */
+input[type="range"]:focus {
+    outline: none;
+}
+
+/***** Chrome, Safari, Opera and Edge Chromium styles *****/
+/* slider track */
+input[type="range"]::-webkit-slider-runnable-track {
+    background-color: #404040;
+    height: 0.25rem;
+}
+
+/* slider thumb */
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    /* Override default look */
+    appearance: none;
+    margin-top: -12px;
+    /* Centers thumb on the track */
+    height: 2rem;
+    width: 1rem;
+}
+
+input[type="range"]:focus::-webkit-slider-thumb {
+    border: 1px solid #404040;
+    outline: 3px solid #404040;
+    outline-offset: 0.125rem;
+}
+
+/******** Firefox styles ********/
+/* slider track */
+input[type="range"]::-moz-range-track {
+    background-color: #404040;
+    height: 0.25rem;
+}
+
+/* slider thumb */
+input[type="range"]::-moz-range-thumb {
+    border: none;
+    /*Removes extra border that FF applies*/
+    border-radius: 0;
+    /*Removes default border-radius that FF applies*/
+
+    /*custom styles*/
+    background-color: #000000;
+    height: 2rem;
+    width: .25rem;
+}
+
+input[type="range"]:focus::-moz-range-thumb {
+    outline: 3px solid #404040;
+    outline-offset: 0.125rem;
+}
+
+#today {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.too+section#today {
+    display: flex;
+}
+
+.items>div button:last-child {
+    margin-top: 1em;
+}
+
+
+/* fei */
+
+.fei {
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    width: 40em;
+    height: 40em;
+    animation-composition: accumulate;
+    display: none;
+}
+
+.fei.on {
+    animation: horizontal 2.6s infinite linear alternate,
+        vertical 2s infinite linear alternate, hue-rotate 5s infinite linear;
+    pointer-events: none;
+    display: block;
+}
+
+.fei>img {
+    display: block;
+    position: absolute;
+    width: 100%;
+}
+
+.left-wing,
+.right-wing {
+    z-index: 2;
+    animation: rotateLeft .2s infinite alternate ease-in-out;
+    transform: translateY(-5%);
+}
+
+.right-wing {
+    animation: rotateRight .2s infinite alternate ease-in-out;
+}
+
+.fei>.mouse {
+    left: 44.3%;
+    top: 33%;
+    width: 11.3%;
+    z-index: 4;
+    transform-origin: top;
+    animation: scale 1s infinite alternate ease-in-out;
+}
+
+.face {
+    z-index: 3;
+}
+
+@keyframes rotateLeft {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(-45deg);
+    }
+}
+
+@keyframes rotateRight {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(45deg);
+    }
+}
+
+@keyframes hue-rotate {
+    0% {
+        filter: hue-rotate(0deg);
+    }
+
+    100% {
+        filter: hue-rotate(360deg);
+    }
+}
+
+@keyframes scale {
+    from {
+        transform: scaleY(1);
+    }
+
+    to {
+        transform: scaleY(2);
+    }
+}
+
+@keyframes horizontal {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(calc(100vw - 100%));
+    }
+}
+
+@keyframes vertical {
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(calc(100vh - 100%));
+    }
+}
+
+@media (max-aspect-ratio: 4/3) {
+    .arrow {
+        display: none;
+    }
+
+    #start button,
+    .items div button,
+    input[type="text"],
+    #download-button {
+        padding: .8em 1em;
+    }
+
+    .fei {
+        width: 20em;
+        height: 20em;
+    }
+    .items div{
+        font-size: 2em;
+    }
+}
+
+/* @media height less than 500px */
+
+@media (max-height: 500px) {
+    body{
+        font-size: 0.5rem;
+    }
+}

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <link rel="icon" href="https://avatars.githubusercontent.com/u/70755374" type="image/x-icon" />
+    <meta name="theme-color" content="#e2e2dd" />
+    <meta name="msapplication-TileColor" content="#e2e2dd">
+    <title>星際探索 - 找出最能代表你的星球</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <main>
+        <section id="start">
+            <h1>星際探索 - 找出最能代表你的星球</h1>
+            <div class="title"><img src="image/title.svg"></div>
+            <button onclick="start()">開始測驗</button>
+            <!-- <footer><a href="credit">credit</a></footer> -->
+        </section>
+        <section id="today"><h2>在這一個假期，<br>你獨自一人來到了外太空旅行<span class="ahhhh">.</span></h2></section>
+        <section id="test">
+            <div class="items">
+                <button class="arrow" onclick="backward()" id="left">❮</button>
+                <div id="whatIsYourName">
+                    <h4>你叫甚麼名字？</h4><input type="text" id="name" placeholder="最多6全形 12半形" maxlength="10"><button onclick="end()"
+                        id="send">送出</button>
+                </div>
+                <span class="title">
+                    <!-- <img src="image/titleb.svg"> -->
+                    <!-- <img src="" class="cap"> -->
+                </span>
+                <article class="current">3</article>
+                <button class="arrow" onclick="foward()">❯</button>
+            </div>
+        </section>
+        <section id="result">
+        </section>
+    </main>
+    <script src="js/script.js"></script>
+    <script>
+    </script>
+</body>
+
+</html>
