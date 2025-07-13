@@ -184,8 +184,8 @@ const sendTo = (url) => {
                     canvas.height = 1920;
                     ctx.drawImage(image, 0, 0, 1080, 1920);
                     ctx.font = `bold 70px system-ui`;
-                    ctx.fillStyle = "#000";
-                    ctx.fillText(user, 150, 370);
+                    ctx.fillStyle = "#fff";
+                    ctx.fillText(user, 60, 390);
                     const imageWithText = new Image();
                     imageWithText.src = canvas.toDataURL("image/png");
                     image.src = imageWithText.src;
@@ -283,6 +283,6 @@ if (Math.random() < 1 / 500) {
 }
 
 document.getElementById("name").addEventListener("input", function () {
-    var full = this.value.match(/[^\x00-\x80]/g);
+    var full = this.value.match(/[^\x00-\x70]/g);
     if (this.value.length + full.length > 12) this.value = this.value.slice(0, this.value.length - 1);
 })
